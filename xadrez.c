@@ -1,28 +1,42 @@
 #include <stdio.h>
 
 int main() {
-    // Nível Novato - Movimentação das Peças
-    // Sugestão: Declare variáveis constantes para representar o número de casas que cada peça pode se mover.
+    
+    //Declaração das variáveis
 
-    // Implementação de Movimentação do Bispo
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação do Bispo em diagonal.
+    int movimentoTorre = 5; // Define que a Torre vai se mover 5 casas para a direita
+    int movimentoBispo = 5; // Define que o Bispo vai se mover 5 casas na diagonal
+    int movimentoRainha = 8; // Define que a Rainha vai se mover 8 casas para a esquerda
 
-    // Implementação de Movimentação da Torre
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação da Torre para a direita.
 
-    // Implementação de Movimentação da Rainha
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação da Rainha para a esquerda.
+    printf("Torre se movendo... \n\n");
 
-    // Nível Aventureiro - Movimentação do Cavalo
-    // Sugestão: Utilize loops aninhados para simular a movimentação do Cavalo em L.
-    // Um loop pode representar a movimentação horizontal e outro vertical.
+    // Estrutura de repetição for: repete exatamente 5 vezes
+    for(int i = 0; i < movimentoTorre; i++){
+       printf("Direita!\n");// Imprime a direção do movimento da Torre
+    }
 
-    // Nível Mestre - Funções Recursivas e Loops Aninhados
-    // Sugestão: Substitua as movimentações das peças por funções recursivas.
-    // Exemplo: Crie uma função recursiva para o movimento do Bispo.
+    printf("\n\n****************************************"); // Divisor das peças
+    printf("\n\nBismo se movendo... \n\n");
+    int i = 0; // Variável de controle para o while
 
-    // Sugestão: Implemente a movimentação do Cavalo utilizando loops com variáveis múltiplas e condições avançadas.
-    // Inclua o uso de continue e break dentro dos loops.
+    // Estrutura de repetição while: repete enquanto i < 5
+    while (i < movimentoBispo)
+    {
+        printf("Cima, Direita!\n"); // Imprime o movimento diagonal
+        i++; // Incrementa o contador
+    }
+    
+    printf("\n\n****************************************\n\n");
+    printf("Rainha se movendo... \n\n");
+    int j = 0;
+
+    // Estrutura de repetição do-while: garante que o bloco será executado ao menos uma vez
+    do
+    {
+        printf("Esquerda!\n\n"); // Imprime a direção do movimento da Rainha
+        j++; // Incrementa o contador
+    } while (j < movimentoRainha); // Continua enquanto j for menor que 8
 
     return 0;
 }
