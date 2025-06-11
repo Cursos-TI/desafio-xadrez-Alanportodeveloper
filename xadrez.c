@@ -1,61 +1,101 @@
 #include <stdio.h>
 
-int main() {
+
+// TORRE: movimento recursivo simples para a direita
+void moverTorre (int casas){
+
+    if (casas > 0)
+    {
+        printf("Direita\n");
+        moverTorre(casas -1); // Chamada recursiva diminuindo casas
+    }
     
-    //Declaração das variáveis
+}
 
-    int movimentoTorre = 5; // Define que a Torre vai se mover 5 casas para a direita
-    int movimentoBispo = 5; // Define que o Bispo vai se mover 5 casas na diagonal
-    int movimentoRainha = 8; // Define que a Rainha vai se mover 8 casas para a esquerda
-    int casasBaixo = 2; // Define a quantidade de casas que o Cavalo deve se mover para baixo
-    int casasEsquerda = 1; // Define a quantidade de casas que o Cavalo deve se mover para a esquerda
 
+// BISPO: recursivo + loops aninhados para simular movimento diagonal
+void moverBispo (int casas){
+
+    if (casas <= 0) return; // Condição de parada da recursão
+    {
+        // Loop externo = vertical 
+        for (int i = 1; i <= 1; i++)
+        {
+            // Loop interno = horizontal
+            for (int y = 1; y <= 1; y++)
+            {
+                if (i == y)
+                {
+                     printf("Cima\n");
+                     printf("Cima\n");
+                     printf("Direita\n\n");
+                }
+                
+            }
+            
+        }
+        // Chamada recursiva diminuindo casas
+        moverBispo(casas - 1);
+    }
+    
+}
+
+
+// RAINHA: movimento recursivo simples
+void moverRainha (int casas){
+
+    if (casas > 0)
+    {
+        printf("Esquerda!\n\n");
+        moverRainha(casas -1);
+    }
+    
+}
+
+// Cavalo com loops aninhados e controle com break/continue
+void moverCavalo (int casas){
+
+    // Laço externo (i) e interno (j) representam possibilidades de movimento
+    for (int i = 1; i <= 3; i++)
+    {
+        for (int j = 1; j <= 3; j++)
+        {
+            if (i == 2 && j == 1) // Condição específica para o movimento em L
+            {
+                printf("Cima\n");
+                printf("Cima\n");
+                printf("Direita\n\n");
+                break; // Sai do loop interno após encontrar a condição
+
+            } else {
+                continue; // Pula para o próximo valor de j
+            }
+            
+        }
+        
+    }
+    
+    
+}
+
+
+int main() {
 
 
     printf("Torre se movendo... \n\n");
-
-    // Estrutura de repetição for: repete exatamente 5 vezes
-    for(int i = 0; i < movimentoTorre; i++){
-       printf("Direita!\n");// Imprime a direção do movimento da Torre
-    }
+    moverTorre(5); // Movimenta a torre 5 vezes para a direita
 
     printf("\n\n****************************************"); // Divisor das peças
     printf("\n\nBismo se movendo... \n\n");
-    int i = 0; // Variável de controle para o while
-
-    // Estrutura de repetição while: repete enquanto i < 5
-    while (i < movimentoBispo)
-    {
-        printf("Cima, Direita!\n"); // Imprime o movimento diagonal
-        i++; // Incrementa o contador
-    }
+    moverBispo(5);
     
     printf("\n\n****************************************\n\n");
     printf("Rainha se movendo... \n\n");
-    int j = 0;
-
-    // Estrutura de repetição do-while: garante que o bloco será executado ao menos uma vez
-    do
-    {
-        printf("Esquerda!\n\n"); // Imprime a direção do movimento da Rainha
-        j++; // Incrementa o contador
-    } while (j < movimentoRainha); // Continua enquanto j for menor que 8
-
+    moverRainha(8); // Movimenta a rainha 8 vezes para a esquerda
 
     printf("\n\n****************************************\n\n");
     printf("Cavalo se movendo... \n\n");
-    int k = 0; 
-
-    while (k < 1) { // Executa o movimento do cavalo apenas uma vez
-
-        // Loop for aninhado para as duas casas para baixo
-        for (int l = 0; l < casasBaixo; l++) {
-            printf("Baixo!\n");
-        }
-        // Movimento perpendicular (uma casa para a esquerda)
-        printf("Esquerda!\n\n");
-        k++; // Após executar o movimento do Cavalo, incrementa k para que o loop while não se repita mais (executa apenas uma vez)
-    }
+    moverCavalo(1); // Cavalo executa movimento específico em L com loops e controle
 
     return 0;
 }
